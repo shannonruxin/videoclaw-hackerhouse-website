@@ -1,44 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
 const CTAFooter = () => {
-  const [showContact, setShowContact] = useState(false);
-  const [email, setEmail] = useState("");
-  const [question, setQuestion] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !question) return;
-    setStatus("sending");
-
-    try {
-      const formData = new FormData();
-      formData.append("email", email);
-      formData.append("message", question);
-      formData.append("_captcha", "false");
-
-      const res = await fetch("https://formsubmit.co/shannonruxin@gmail.com", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!res.ok) throw new Error("Failed");
-    } catch {
-      setStatus("idle");
-      alert("Failed to send. Try again.");
-      return;
-    }
-
-    setStatus("sent");
-    setTimeout(() => {
-      setStatus("idle");
-      setShowContact(false);
-      setEmail("");
-      setQuestion("");
-    }, 2000);
-  };
-
   return (
     <section id="apply" className="relative py-32 px-6">
       <div className="absolute inset-0 bg-grid opacity-15" />
@@ -61,7 +23,7 @@ const CTAFooter = () => {
             3 days. 1 villa. The best builders and creatives. Limited spots.
           </p>
 
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex flex-col items-center justify-center gap-6">
             <a
               href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
               className="inline-flex items-center gap-2 px-10 py-5 rounded-lg bg-primary text-primary-foreground font-semibold text-lg glow-cyan hover:scale-105 transition-transform duration-300"
@@ -72,60 +34,18 @@ const CTAFooter = () => {
               </svg>
             </a>
 
-            <button
-              onClick={() => setShowContact(!showContact)}
-              className="text-muted-foreground hover:text-foreground font-medium transition-colors duration-200 underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-foreground/60"
-            >
-              Contact
-            </button>
-          </div>
-
-          <AnimatePresence>
-            {showContact && (
-              <motion.div
-                initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                animate={{ opacity: 1, height: "auto", marginTop: 32 }}
-                exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="overflow-hidden"
+            <div className="rounded-xl border border-border bg-card/60 backdrop-blur-md px-6 py-4 text-center">
+              <p className="text-sm font-mono text-muted-foreground">
+                Contact the organizers
+              </p>
+              <a
+                href="mailto:shannonruxin@gmail.com"
+                className="mt-1 inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-primary/60"
               >
-                <form
-                  onSubmit={handleSubmit}
-                  className="max-w-md mx-auto space-y-4 rounded-xl border border-border bg-card/60 backdrop-blur-md p-6 text-left"
-                >
-                  <div>
-                    <label className="block text-sm font-mono text-muted-foreground mb-1.5">Email</label>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="you@email.com"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-shadow"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono text-muted-foreground mb-1.5">Question</label>
-                    <textarea
-                      required
-                      value={question}
-                      onChange={(e) => setQuestion(e.target.value)}
-                      placeholder="What would you like to know?"
-                      rows={3}
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-shadow resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={status !== "idle"}
-                    className="w-full rounded-lg bg-primary text-primary-foreground font-semibold py-2.5 text-sm hover:opacity-90 transition-opacity disabled:opacity-60"
-                  >
-                    {status === "sending" ? "Sending…" : status === "sent" ? "✓ Sent" : "Send"}
-                  </button>
-                </form>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                shannonruxin@gmail.com
+              </a>
+            </div>
+          </div>
         </motion.div>
 
         <div className="mt-20 pt-8 border-t border-border">
