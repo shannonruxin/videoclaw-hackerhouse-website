@@ -62,7 +62,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <a
-            href="#apply"
+            href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-lg glow-cyan hover:scale-105 transition-transform duration-300"
           >
             Apply Now

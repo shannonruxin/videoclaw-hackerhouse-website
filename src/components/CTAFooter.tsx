@@ -25,7 +25,7 @@ const CTAFooter = () => {
             3 days. 1 villa. The best builders and creatives. Limited spots.
           </p>
           <a
-            href="#"
+            href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
             className="inline-flex items-center gap-2 px-10 py-5 rounded-lg bg-primary text-primary-foreground font-semibold text-lg glow-cyan hover:scale-105 transition-transform duration-300"
           >
             Apply Now
