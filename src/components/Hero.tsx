@@ -79,6 +79,24 @@ const motifInstances: Array<{
   { type: "star", scale: 1.05, delay: 0.75, orbitRadius: 390, startAngle: 265, swirlDuration: 60, clockwise: false },
   { type: "diamond", scale: 0.95, delay: 0.9, orbitRadius: 420, startAngle: 315, swirlDuration: 66, clockwise: true },
   { type: "plus", scale: 0.8, delay: 0.6, orbitRadius: 455, startAngle: 20, swirlDuration: 72, clockwise: false },
+  { type: "flower", scale: 0.9, delay: 0.15, orbitRadius: 500, startAngle: 72, swirlDuration: 76, clockwise: true },
+  { type: "flower", scale: 1, delay: 0.45, orbitRadius: 540, startAngle: 168, swirlDuration: 82, clockwise: false },
+  { type: "flower", scale: 0.85, delay: 0.7, orbitRadius: 575, startAngle: 248, swirlDuration: 88, clockwise: true },
+  { type: "flower", scale: 1.05, delay: 1, orbitRadius: 620, startAngle: 332, swirlDuration: 94, clockwise: false },
+  { type: "flower", scale: 0.7, delay: 0.05, orbitRadius: 520, startAngle: 12, swirlDuration: 78, clockwise: true },
+  { type: "flower", scale: 1.05, delay: 0.25, orbitRadius: 560, startAngle: 38, swirlDuration: 84, clockwise: false },
+  { type: "flower", scale: 0.78, delay: 0.4, orbitRadius: 600, startAngle: 64, swirlDuration: 90, clockwise: true },
+  { type: "flower", scale: 1.02, delay: 0.6, orbitRadius: 640, startAngle: 90, swirlDuration: 96, clockwise: false },
+  { type: "flower", scale: 0.68, delay: 0.8, orbitRadius: 540, startAngle: 116, swirlDuration: 80, clockwise: true },
+  { type: "flower", scale: 15, delay: 1.05, orbitRadius: 585, startAngle: 142, swirlDuration: 92, clockwise: false },
+  { type: "flower", scale: 0.82, delay: 0.18, orbitRadius: 625, startAngle: 190, swirlDuration: 98, clockwise: true },
+  { type: "flower", scale: 0.98, delay: 0.33, orbitRadius: 665, startAngle: 214, swirlDuration: 104, clockwise: false },
+  { type: "flower", scale: 0.74, delay: 0.5, orbitRadius: 545, startAngle: 238, swirlDuration: 82, clockwise: true },
+  { type: "flower", scale: 15, delay: 0.72, orbitRadius: 590, startAngle: 262, swirlDuration: 88, clockwise: false },
+  { type: "flower", scale: 0.64, delay: 0.92, orbitRadius: 630, startAngle: 286, swirlDuration: 95, clockwise: true },
+  { type: "flower", scale: 15, delay: 1.12, orbitRadius: 675, startAngle: 310, swirlDuration: 108, clockwise: false },
+  { type: "flower", scale: 0.86, delay: 0.28, orbitRadius: 560, startAngle: 334, swirlDuration: 86, clockwise: true },
+  { type: "flower", scale: 1.03, delay: 0.56, orbitRadius: 605, startAngle: 356, swirlDuration: 92, clockwise: false },
 ];
 
 const Hero = () => {
@@ -117,9 +135,12 @@ const Hero = () => {
             >
               <div style={{ transform: `translateX(${instance.orbitRadius}px)` }}>
               {shape.map((pixel, i) => {
-                const angle = (i / shape.length) * Math.PI * 2;
-                const blowX = Math.cos(angle) * (30 + (i % 4) * 10);
-                const blowY = Math.sin(angle) * (25 + (i % 3) * 8);
+                const nextPixel = shape[(i + 1) % shape.length];
+                const prevPixel = shape[(i - 1 + shape.length) % shape.length];
+                const shiftToNextX = (nextPixel.x - pixel.x) * 8 * instance.scale;
+                const shiftToNextY = (nextPixel.y - pixel.y) * 8 * instance.scale;
+                const shiftToPrevX = (prevPixel.x - pixel.x) * 8 * instance.scale;
+                const shiftToPrevY = (prevPixel.y - pixel.y) * 8 * instance.scale;
                 const colorClass =
                   pixel.tone === "cyan"
                     ? "bg-neon-cyan/85"
@@ -138,15 +159,15 @@ const Hero = () => {
                       height: 5 * instance.scale,
                     }}
                     animate={{
-                      x: [0, 0, blowX],
-                      y: [0, 0, blowY],
-                      opacity: [0, 0.95, 0.95, 0],
-                      scale: [0.4, 1, 1, 0.35],
+                      x: [0, shiftToNextX, 0, shiftToPrevX, 0],
+                      y: [0, shiftToNextY, 0, shiftToPrevY, 0],
+                      opacity: [0.5, 0.95, 0.65, 0.9, 0.5],
+                      scale: [0.9, 1.08, 0.92, 1.04, 0.9],
                     }}
                     transition={{
-                      duration: 8.5,
-                      times: [0, 0.2, 0.62, 1],
-                      delay: instance.delay + i * 0.02,
+                      duration: 6.8 + (i % 4) * 0.7,
+                      times: [0, 0.24, 0.5, 0.76, 1],
+                      delay: instance.delay + i * 0.03,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
