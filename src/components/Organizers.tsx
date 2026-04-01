@@ -10,25 +10,23 @@ const organizers = [
 
 const Organizers = () => {
   return (
-    <section className="py-20 px-6 bg-background">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          className="mb-10"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+    <section className="py-20 px-6 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-card/50 to-transparent h-px top-0" />
+      <div className="max-w-5xl mx-auto">
+        <motion.p
+          className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-10 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
         >
-          <p className="text-muted-foreground text-sm font-medium tracking-wide uppercase mb-4">
-            Brought to you by
-          </p>
-        </motion.div>
+          Brought to you by
+        </motion.p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="flex items-center justify-center gap-12 flex-wrap">
           {organizers.map((organizer, i) => (
             <motion.div
               key={organizer.name}
-              className="rounded-2xl bg-card p-8 flex items-center justify-center hover:bg-muted transition-colors"
+              className="group"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -37,7 +35,7 @@ const Organizers = () => {
               <img
                 src={organizer.logo}
                 alt={`${organizer.name} logo`}
-                className="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+                className="h-10 sm:h-12 w-auto opacity-40 group-hover:opacity-80 transition-all duration-500 grayscale group-hover:grayscale-0"
               />
             </motion.div>
           ))}

@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Libre Franklin'", "system-ui", "-apple-system", "sans-serif"],
-        mono: ["'JetBrains Mono'", "monospace"],
+        display: ["'Sora'", "system-ui", "sans-serif"],
+        serif: ["'Instrument Serif'", "Georgia", "serif"],
+        mono: ["'Space Mono'", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
