@@ -33,7 +33,7 @@ const EventDetails = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">The Details</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">The Details</h2>
           <p className="text-muted-foreground text-lg">Everything you need to know about the residency format.</p>
         </motion.div>
 

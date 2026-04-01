@@ -16,7 +16,7 @@ const Prize = () => {
             <Trophy className="w-8 h-8 text-primary" strokeWidth={1.5} />
           </div>
           <p className="text-primary text-sm font-semibold tracking-wide uppercase mb-3">Prizes</p>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight text-foreground">Cash Prize</h2>
+          <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight text-foreground">Cash Prize</h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Top projects win cash prizes. Ship something extraordinary.
           </p>

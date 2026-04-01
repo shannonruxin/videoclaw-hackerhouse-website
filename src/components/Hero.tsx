@@ -7,7 +7,7 @@ const Hero = () => {
         <img
           src="/image copy.png"
           alt=""
-          className="w-full h-full object-contain object-right-top opacity-[0.12]"
+          className="w-full h-full object-contain object-right-top opacity-[0.52]"
           aria-hidden="true"
         />
       </div>
@@ -24,7 +24,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.h1
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8 text-foreground"
+          className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.15] mb-8 text-foreground"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -34,7 +34,7 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="text-muted-foreground text-xl sm:text-2xl max-w-xl mb-10 leading-relaxed"
+          className="text-muted-foreground text-lg sm:text-xl max-w-xl mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -51,12 +51,15 @@ const Hero = () => {
         >
           <a
             href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold text-lg rounded-full transition-all hover:brightness-110 hover:shadow-lg hover:shadow-primary/20"
+            className="inline-flex items-center px-8 py-3.5 bg-primary text-white font-bold text-base rounded-full transition-all hover:brightness-110 hover:shadow-lg hover:shadow-primary/20"
           >
             Apply Now
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="ml-1">
-              <path d="M4 10h12M12 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+          </a>
+          <a
+            href="mailto:shannon@checkmateresearch.space"
+            className="text-primary font-bold text-base hover:underline transition-colors"
+          >
+            Contact us
           </a>
         </motion.div>
       </div>

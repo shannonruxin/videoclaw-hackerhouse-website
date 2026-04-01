@@ -34,7 +34,7 @@ const Tracks = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">Choose Your Track</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">Choose Your Track</h2>
           <p className="text-muted-foreground text-lg">Two paths to participate in the hackerhouse.</p>
         </motion.div>
 
@@ -60,7 +60,7 @@ const Tracks = () => {
               </div>
 
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6 tracking-tight">
+                <h3 className="text-2xl font-extrabold text-foreground mb-6 tracking-tight">
                   {track.title}
                 </h3>
                 <div className="space-y-4">

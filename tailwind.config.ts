@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Inter'", "sans-serif"],
+        display: ["'Libre Franklin'", "system-ui", "-apple-system", "sans-serif"],
         mono: ["'JetBrains Mono'", "monospace"],
       },
       colors: {

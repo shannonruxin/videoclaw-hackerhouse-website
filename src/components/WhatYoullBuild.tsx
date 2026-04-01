@@ -20,7 +20,7 @@ const WhatYoullBuild = () => {
           transition={{ duration: 0.5 }}
         >
           <p className="text-primary text-sm font-semibold tracking-wide uppercase mb-3">The Mission</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">What You'll Build</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">What You'll Build</h2>
           <p className="text-muted-foreground text-lg max-w-xl">
             Creative workflows and tools built using OpenClaw on top of Humeo. Push the boundary of what's possible.
           </p>

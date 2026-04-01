@@ -10,7 +10,7 @@ const CTAFooter = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl sm:text-6xl font-bold mb-6 tracking-tight text-foreground">
+          <h2 className="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight text-foreground">
             Build the future of
             <br />
             <span className="text-primary">creative tools.</span>
@@ -22,12 +22,9 @@ const CTAFooter = () => {
           <div className="flex flex-col items-center justify-center gap-8">
             <a
               href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-primary text-white font-semibold text-lg rounded-full hover:brightness-110 hover:shadow-lg hover:shadow-primary/20 transition-all"
+              className="inline-flex items-center px-10 py-4 bg-primary text-white font-bold text-base rounded-full hover:brightness-110 hover:shadow-lg hover:shadow-primary/20 transition-all"
             >
               Apply Now
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="ml-1">
-                <path d="M4 10h12M12 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
             </a>
 
             <div className="rounded-2xl bg-card px-8 py-6 text-center">
