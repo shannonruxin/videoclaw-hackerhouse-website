@@ -1,22 +1,13 @@
 import { motion } from "framer-motion";
+import ParticleFlower from "./ParticleFlower";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-background overflow-hidden bg-grain">
+    <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden bg-grain">
+      <ParticleFlower />
       {/* Decorative blobs */}
       <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[hsl(14,90%,55%)] via-[hsl(340,80%,60%)] to-[hsl(260,60%,55%)] opacity-[0.08] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-15%] left-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[hsl(260,60%,55%)] to-[hsl(14,90%,55%)] opacity-[0.06] blur-[100px] pointer-events-none" />
-
-      {/* Right side image */}
-      <div className="absolute top-0 right-0 w-[55%] h-full pointer-events-none select-none hidden lg:block">
-        <img
-          src="/image copy.png"
-          alt=""
-          className="w-full h-full object-contain object-right-top opacity-70"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
-      </div>
 
       {/* Floating decorative elements */}
       <motion.div
@@ -30,7 +21,7 @@ const Hero = () => {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      <div className="relative z-10 px-8 sm:px-16 lg:px-24 max-w-3xl py-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,7 +34,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.h1
-          className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-4 text-foreground"
+          className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-4 text-foreground max-w-xl lg:max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -55,7 +46,7 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="text-muted-foreground text-lg sm:text-xl max-w-2xl mb-12 leading-relaxed"
+          className="text-muted-foreground text-lg sm:text-xl max-w-lg mb-12 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
