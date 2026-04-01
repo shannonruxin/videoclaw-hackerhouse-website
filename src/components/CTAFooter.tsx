@@ -13,13 +13,21 @@ const CTAFooter = () => {
     setStatus("sending");
 
     try {
-      await fetch("https://formsubmit.co/ajax/shannonruxin@gmail.com", {
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("message", question);
+      formData.append("_captcha", "false");
+
+      const res = await fetch("https://formsubmit.co/shannonruxin@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email, message: question }),
+        body: formData,
       });
+
+      if (!res.ok) throw new Error("Failed");
     } catch {
-      // still show sent
+      setStatus("idle");
+      alert("Failed to send. Try again.");
+      return;
     }
 
     setStatus("sent");
