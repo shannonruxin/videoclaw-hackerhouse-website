@@ -21,7 +21,7 @@ const Hero = () => {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-64 lg:pt-0">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

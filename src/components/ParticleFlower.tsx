@@ -40,15 +40,16 @@ function rotateX(y: number, z: number, a: number) {
   return { y: y * cos - z * sin, z: y * sin + z * cos };
 }
 
-function createFlower3D(scale: number): Particle[] {
+function createFlower3D(scale: number, mobile: boolean): Particle[] {
   const particles: Particle[] = [];
   const k = 5;
+  const density = mobile ? 0.55 : 1;
 
   const layers = [
-    { count: 280, rScale: 1.0, zPeak: 0.35, sizeRange: [1.8, 4.5], lBoost: 0 },
-    { count: 200, rScale: 0.72, zPeak: 0.5, sizeRange: [1.2, 3.5], lBoost: 5 },
-    { count: 140, rScale: 0.45, zPeak: 0.65, sizeRange: [1, 3], lBoost: 10 },
-    { count: 80, rScale: 0.2, zPeak: 0.8, sizeRange: [1.5, 3], lBoost: 15 },
+    { count: Math.round(280 * density), rScale: 1.0, zPeak: 0.35, sizeRange: [1.8, 4.5], lBoost: 0 },
+    { count: Math.round(200 * density), rScale: 0.72, zPeak: 0.5, sizeRange: [1.2, 3.5], lBoost: 5 },
+    { count: Math.round(140 * density), rScale: 0.45, zPeak: 0.65, sizeRange: [1, 3], lBoost: 10 },
+    { count: Math.round(80 * density), rScale: 0.2, zPeak: 0.8, sizeRange: [1.5, 3], lBoost: 15 },
   ];
 
   for (const layer of layers) {
@@ -89,7 +90,8 @@ function createFlower3D(scale: number): Particle[] {
     }
   }
 
-  for (let i = 0; i < 70; i++) {
+  const centerCount = mobile ? 35 : 70;
+  for (let i = 0; i < centerCount; i++) {
     const a = Math.random() * Math.PI * 2;
     const r = Math.random() * scale * 0.12;
     const c = PALETTE[Math.floor(Math.random() * 2)];
@@ -126,20 +128,33 @@ const ParticleFlower = () => {
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
 
-    const maxContainer = 1280;
-    const containerW = Math.min(rect.width, maxContainer);
-    const containerLeft = (rect.width - containerW) / 2;
-    const flowerCx = containerLeft + containerW * 0.75;
+    const mobile = rect.width < 1024;
 
-    const scale = Math.min(rect.width, rect.height) * 0.32;
+    let flowerCx: number;
+    let flowerCy: number;
+    let scale: number;
+
+    if (mobile) {
+      flowerCx = rect.width * 0.5;
+      flowerCy = rect.height * 0.22;
+      scale = Math.min(rect.width * 0.4, rect.height * 0.2);
+    } else {
+      const maxContainer = 1280;
+      const containerW = Math.min(rect.width, maxContainer);
+      const containerLeft = (rect.width - containerW) / 2;
+      flowerCx = containerLeft + containerW * 0.75;
+      flowerCy = rect.height * 0.46;
+      scale = Math.min(rect.width, rect.height) * 0.32;
+    }
+
     dims.current = {
       w: rect.width,
       h: rect.height,
       cx: flowerCx,
-      cy: rect.height * 0.46,
+      cy: flowerCy,
       scale,
     };
-    particles.current = createFlower3D(scale);
+    particles.current = createFlower3D(scale, mobile);
   }, []);
 
   useEffect(() => {
@@ -149,17 +164,27 @@ const ParticleFlower = () => {
   }, [init]);
 
   useEffect(() => {
-    const handleMove = (e: MouseEvent) => {
+    const update = (clientX: number, clientY: number) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
       mouse.current = {
-        x: (e.clientX - rect.left) / rect.width,
-        y: (e.clientY - rect.top) / rect.height,
+        x: (clientX - rect.left) / rect.width,
+        y: (clientY - rect.top) / rect.height,
       };
     };
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
+    const handleMouse = (e: MouseEvent) => update(e.clientX, e.clientY);
+    const handleTouch = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        update(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+    window.addEventListener("mousemove", handleMouse);
+    window.addEventListener("touchmove", handleTouch, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("touchmove", handleTouch);
+    };
   }, []);
 
   useEffect(() => {
