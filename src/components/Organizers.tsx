@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import aiTinkerersKlLogo from "@/assets/image1.png";
+import aiTinkerersKlLogo from "@/assets/logo1.png";
+import image2Logo from "@/assets/logo2.svg";
 
 const organizers = [
   { name: "AI Tinkerers Kuala Lumpur", logo: aiTinkerersKlLogo },
   { name: "Organizer 2", logo: "/placeholder.svg" },
-  { name: "Organizer 3", logo: "/placeholder.svg" },
+  { name: "Humeo", logo: image2Logo },
 ];
 
 const Organizers = () => {
