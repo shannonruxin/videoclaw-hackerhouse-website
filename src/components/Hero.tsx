@@ -42,44 +42,25 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <motion.p
-          className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-        >
-          where tech meets taste
-        </motion.p>
-
         <motion.h1
           className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-4 text-foreground"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span className="text-gradient">VideoClaw</span>
+          <span className="text-gradient">Video</span>
+          <span className="text-gradient">Claw</span>
           <br />
-          Hackerhouse
+          <span className="text-foreground text-4xl sm:text-5xl lg:text-6xl font-light">Hackerhouse</span>
         </motion.h1>
 
         <motion.p
-          className="font-serif italic text-2xl sm:text-3xl text-foreground/60 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-        >
-          Build the tools creators dream about.
-        </motion.p>
-
-        <motion.p
-          className="text-muted-foreground text-base sm:text-lg max-w-lg mb-12 leading-relaxed"
+          className="text-muted-foreground text-lg sm:text-xl max-w-2xl mb-12 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          3 days in a private villa. Builders, creatives, and AI — 
-          assembling the next generation of{" "}
-          <span className="text-foreground font-semibold">creative pipelines</span>.
+          3 days at a villa. Build the next creative tool.
         </motion.p>
 
         <motion.div
@@ -90,16 +71,12 @@ const Hero = () => {
         >
           <a
             href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-[hsl(340,80%,55%)] text-white font-bold text-base rounded-full transition-all hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98]"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-[hsl(340,80%,55%)] text-white font-semibold text-lg rounded-full transition-all hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98]"
           >
-            <span className="text-lg">+</span>
             Apply Now
-          </a>
-          <a
-            href="mailto:shannon@checkmateresearch.space"
-            className="text-foreground/60 font-medium text-base hover:text-primary transition-colors border-b border-foreground/20 hover:border-primary pb-0.5"
-          >
-            Contact us
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="ml-1">
+              <path d="M4 10h12M12 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </a>
         </motion.div>
       </div>

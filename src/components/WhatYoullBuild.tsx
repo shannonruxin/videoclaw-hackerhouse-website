@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Cpu, Layers, Zap, Paintbrush } from "lucide-react";
 
 const examples = [
-  { icon: Cpu, text: "AI creative tools", tag: "tech" },
-  { icon: Layers, text: "Automated creative pipelines", tag: "infra" },
-  { icon: Paintbrush, text: "New ways to create content", tag: "creative" },
-  { icon: Zap, text: "Creative workflows on OpenClaw + Humeo", tag: "product" },
+  { icon: Cpu, text: "AI creative tools" },
+  { icon: Layers, text: "Automated creative pipelines" },
+  { icon: Paintbrush, text: "New ways to create content" },
+  { icon: Zap, text: "Creative workflows on OpenClaw + Humeo" },
 ];
 
 const WhatYoullBuild = () => {
@@ -45,10 +45,7 @@ const WhatYoullBuild = () => {
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500">
                 <item.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
               </div>
-              <div>
-                <p className="text-foreground font-semibold text-lg">{item.text}</p>
-                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">{item.tag}</span>
-              </div>
+              <p className="text-foreground font-medium text-lg">{item.text}</p>
             </motion.div>
           ))}
         </div>

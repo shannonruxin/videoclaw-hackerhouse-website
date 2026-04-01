@@ -36,9 +36,9 @@ const EventDetails = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4">Logistics</p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-4">
-            The <span className="font-serif italic font-normal">Details</span>
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4">The Details</p>
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+            Residency <span className="font-serif italic font-normal">Format</span>
           </h2>
         </motion.div>
 

@@ -26,7 +26,7 @@ const Organizers = () => {
           {organizers.map((organizer, i) => (
             <motion.div
               key={organizer.name}
-              className="group"
+              className="group px-8 py-5 rounded-2xl bg-foreground/[0.06] border border-foreground/[0.04] hover:bg-foreground/[0.1] transition-all duration-500"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -35,7 +35,7 @@ const Organizers = () => {
               <img
                 src={organizer.logo}
                 alt={`${organizer.name} logo`}
-                className="h-10 sm:h-12 w-auto opacity-40 group-hover:opacity-80 transition-all duration-500 grayscale group-hover:grayscale-0"
+                className="h-10 sm:h-12 w-auto opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
               />
             </motion.div>
           ))}
