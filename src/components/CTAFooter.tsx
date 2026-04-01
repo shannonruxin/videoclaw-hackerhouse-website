@@ -42,7 +42,7 @@ const CTAFooter = () => {
                 href="mailto:shannon@checkmateresearch.space"
                 className="mt-1 inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-primary/60"
               >
-                shannonruxin@gmail.com
+                shannon@checkmateresearch.space
               </a>
             </div>
           </div>
