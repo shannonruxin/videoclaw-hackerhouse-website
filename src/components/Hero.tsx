@@ -2,63 +2,56 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background base */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 20%, hsl(var(--neon-cyan) / 0.18), transparent 42%), radial-gradient(circle at 78% 68%, hsl(var(--neon-magenta) / 0.16), transparent 44%), radial-gradient(circle at 52% 42%, hsl(var(--neon-violet) / 0.14), transparent 54%)",
-          }}
+    <section className="relative min-h-screen flex items-center bg-background text-foreground overflow-hidden">
+      <div className="absolute top-0 right-0 w-[65%] h-full pointer-events-none select-none">
+        <img
+          src="/image copy.png"
+          alt=""
+          className="w-full h-full object-contain object-right-top opacity-[0.12]"
+          aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-background/84" />
-        <div className="absolute inset-0 bg-grid opacity-12" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 px-8 sm:px-16 lg:px-24 max-w-3xl py-32">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5 }}
         >
-          <p className="text-neon-cyan font-mono text-sm tracking-[0.3em] uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 text-primary font-medium text-sm mb-10 bg-primary/5">
             April 10–12, 2026 · Kuala Lumpur
-          </p>
+          </div>
         </motion.div>
 
         <motion.h1
-          className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9] mb-8"
-          initial={{ opacity: 0, y: 40 }}
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8 text-foreground"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span className="text-foreground">Video</span>
-          <span className="text-gradient-neon">Claw</span>
-          <br />
-          <span className="text-foreground text-4xl sm:text-5xl lg:text-6xl font-light">
-            Hackerhouse
-          </span>
+          <span className="text-primary">VideoClaw</span>
+          {" "}Hackerhouse
         </motion.h1>
 
         <motion.p
-          className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-light"
+          className="text-muted-foreground text-xl sm:text-2xl max-w-xl mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          3 days at a villa. Build the next creative tool.
+          3 days at a villa. Build the next generation of{" "}
+          <span className="text-foreground font-semibold">creative tools</span>.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex items-center gap-4"
         >
           <a
             href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-lg glow-cyan hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold text-lg rounded-full transition-all hover:brightness-110 hover:shadow-lg hover:shadow-primary/20"
           >
             Apply Now
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="ml-1">
@@ -67,9 +60,6 @@ const Hero = () => {
           </a>
         </motion.div>
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };

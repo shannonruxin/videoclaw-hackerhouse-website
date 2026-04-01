@@ -3,29 +3,23 @@ import { Trophy } from "lucide-react";
 
 const Prize = () => {
   return (
-    <section className="relative py-32 px-6">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-magenta/30 to-transparent" />
-
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="py-24 px-6 bg-background">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="relative p-12 rounded-2xl border border-neon-magenta/30 bg-card/50 overflow-hidden"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="p-12 rounded-2xl bg-card text-center"
         >
-          {/* Glow */}
-          <div className="absolute inset-0 bg-neon-magenta/5" />
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-neon-magenta/10 blur-[100px]" />
-
-          <div className="relative">
-            <Trophy className="w-12 h-12 text-neon-magenta mx-auto mb-6" strokeWidth={1.5} />
-            <p className="text-neon-magenta font-mono text-sm tracking-[0.2em] uppercase mb-3">Prizes</p>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4">Cash Prize</h2>
-            <p className="text-muted-foreground text-lg">
-              Top projects win cash prizes. Ship something extraordinary.
-            </p>
+          <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            <Trophy className="w-8 h-8 text-primary" strokeWidth={1.5} />
           </div>
+          <p className="text-primary text-sm font-semibold tracking-wide uppercase mb-3">Prizes</p>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight text-foreground">Cash Prize</h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            Top projects win cash prizes. Ship something extraordinary.
+          </p>
         </motion.div>
       </div>
     </section>
