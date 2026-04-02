@@ -10,35 +10,32 @@ const organizers = [
 
 const Organizers = () => {
   return (
-    <section className="relative py-14 px-6">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-cyan/20 to-transparent" />
-      <div className="relative max-w-5xl mx-auto">
-        <motion.div
-          className="text-center mb-8"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+    <section className="py-20 px-6 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-card/50 to-transparent h-px top-0" />
+      <div className="max-w-5xl mx-auto">
+        <motion.p
+          className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-10 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
         >
-          <p className="text-muted-foreground font-mono text-xs tracking-[0.2em] uppercase">
-            Brought to you by
-          </p>
-        </motion.div>
+          Brought to you by
+        </motion.p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="flex items-center justify-center gap-12 flex-wrap">
           {organizers.map((organizer, i) => (
             <motion.div
               key={organizer.name}
-              className="rounded-xl border border-border bg-card/40 backdrop-blur-sm p-5 flex items-center justify-center"
-              initial={{ opacity: 0, y: 16 }}
+              className="group px-8 py-5 rounded-2xl bg-foreground/[0.06] border border-foreground/[0.04] hover:bg-foreground/[0.1] transition-all duration-500"
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
             >
               <img
                 src={organizer.logo}
                 alt={`${organizer.name} logo`}
-                className="h-10 w-auto opacity-80"
+                className="h-10 sm:h-12 w-auto opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
               />
             </motion.div>
           ))}
@@ -49,4 +46,3 @@ const Organizers = () => {
 };
 
 export default Organizers;
-

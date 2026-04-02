@@ -2,31 +2,30 @@ import { motion } from "framer-motion";
 
 const CTAFooter = () => {
   return (
-    <section id="apply" className="relative py-32 px-6">
-      <div className="absolute inset-0 bg-grid opacity-15" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-neon-cyan/8 blur-[120px]" />
+    <section id="apply" className="py-28 px-6 bg-background relative bg-grain">
+      {/* Top decorative */}
+      <div className="absolute top-0 left-1/2 w-px h-16 bg-gradient-to-b from-transparent to-border" />
 
-      <div className="relative max-w-3xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight text-foreground leading-[1.05]">
             Build the future of
             <br />
-            <span className="text-gradient-neon">creative tools.</span>
+            <span className="text-gradient">creative tools.</span>
           </h2>
-          <p className="text-muted-foreground text-lg mb-10 max-w-lg mx-auto">
+          <p className="text-muted-foreground text-lg mb-12 max-w-lg mx-auto">
             3 days. 1 villa. The best builders and creatives. Limited spots.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-col items-center gap-8">
             <a
               href="https://airtable.com/appBgmnpu1bJljnxX/pagcuQnj2YgQQ8pDN/form"
-              className="inline-flex items-center gap-2 px-10 py-5 rounded-lg bg-primary text-primary-foreground font-semibold text-lg glow-cyan hover:scale-105 transition-transform duration-300"
+              className="group inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-primary to-[hsl(340,80%,55%)] text-white font-semibold text-lg rounded-full hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               Apply Now
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="ml-1">
@@ -34,13 +33,13 @@ const CTAFooter = () => {
               </svg>
             </a>
 
-            <div className="rounded-xl border border-border bg-card/60 backdrop-blur-md px-6 py-4 text-center">
-              <p className="text-sm font-mono text-muted-foreground">
+            <div className="rounded-2xl bg-card/60 border border-border/40 px-8 py-5 backdrop-blur-sm">
+              <p className="font-mono text-[10px] text-muted-foreground mb-2 uppercase tracking-[0.2em]">
                 Contact the organizers
               </p>
               <a
                 href="mailto:shannon@checkmateresearch.space"
-                className="mt-1 inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-primary/60"
+                className="text-foreground/70 font-medium hover:text-primary transition-colors"
               >
                 shannon@checkmateresearch.space
               </a>
@@ -48,8 +47,8 @@ const CTAFooter = () => {
           </div>
         </motion.div>
 
-        <div className="mt-20 pt-8 border-t border-border">
-          <p className="text-muted-foreground text-sm font-mono">
+        <div className="mt-28 pt-8 border-t border-border/50">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
             VideoClaw Hackerhouse · April 2026 · KL
           </p>
         </div>

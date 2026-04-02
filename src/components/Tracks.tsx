@@ -6,7 +6,7 @@ const tracks = [
   {
     title: "Builder",
     image: builderImg,
-    color: "cyan" as const,
+    color: "from-primary/20 to-primary/5",
     points: [
       "Build creative tools, workflows, or wrappers using OpenClaw + Humeo",
       "Full creative freedom — solo or in teams",
@@ -16,7 +16,7 @@ const tracks = [
   {
     title: "Creative",
     image: creativeImg,
-    color: "magenta" as const,
+    color: "from-accent/20 to-accent/5",
     points: [
       "No coding required — bring ideas, taste, and creative direction",
       "Work alongside 10+ tech builders to realize your vision",
@@ -25,76 +25,60 @@ const tracks = [
   },
 ];
 
-const colorMap = {
-  cyan: {
-    border: "border-neon-cyan/30",
-    glow: "glow-cyan",
-    text: "text-neon-cyan",
-    bg: "bg-neon-cyan/5",
-    dot: "bg-neon-cyan",
-  },
-  magenta: {
-    border: "border-neon-magenta/30",
-    glow: "glow-magenta",
-    text: "text-neon-magenta",
-    bg: "bg-neon-magenta/5",
-    dot: "bg-neon-magenta",
-  },
-};
-
 const Tracks = () => {
   return (
-    <section className="relative py-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-28 px-6 bg-background relative bg-grain">
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <p className="text-neon-cyan font-mono text-sm tracking-[0.2em] uppercase mb-3">Two Paths</p>
-          <h2 className="text-4xl sm:text-5xl font-bold">Choose Your Track</h2>
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary mb-4">Two Paths</p>
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+            Choose Your <span className="font-serif italic font-normal">Track</span>
+          </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {tracks.map((track, i) => {
-            const c = colorMap[track.color];
-            return (
-              <motion.div
-                key={track.title}
-                className={`group relative rounded-2xl overflow-hidden border ${c.border} ${c.bg} hover:${c.glow} transition-shadow duration-500`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7, delay: i * 0.15 }}
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={track.image}
-                    alt={track.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
-                    width={800}
-                    height={1024}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
-                  <h3 className={`absolute bottom-6 left-6 text-3xl font-bold ${c.text}`}>
-                    {track.title}
-                  </h3>
-                </div>
+          {tracks.map((track, i) => (
+            <motion.div
+              key={track.title}
+              className="group rounded-3xl bg-card overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+            >
+              <div className="relative h-72 overflow-hidden">
+                <img
+                  src={track.image}
+                  alt={track.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  width={800}
+                  height={1024}
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${track.color} to-transparent`} />
+              </div>
 
-                <div className="p-6 pt-2 space-y-3">
+              <div className="p-8">
+                <h3 className="text-2xl font-extrabold text-foreground mb-6 tracking-tight">
+                  {track.title}
+                </h3>
+                <div className="space-y-3">
                   {track.points.map((point, j) => (
                     <div key={j} className="flex items-start gap-3">
-                      <span className={`mt-2 w-1.5 h-1.5 rounded-full ${c.dot} shrink-0`} />
+                      <span className="mt-2 w-1 h-1 rounded-full bg-primary shrink-0" />
                       <p className="text-muted-foreground text-sm leading-relaxed">{point}</p>
                     </div>
                   ))}
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
