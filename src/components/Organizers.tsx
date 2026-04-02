@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import aiTinkerersKlLogo from "@/assets/logo1.png";
-import image2Logo from "@/assets/logo2.svg";
+import logo1 from "@/assets/logo1.png";
+import logo2 from "@/assets/logo2.svg";
+import logo3 from "@/assets/logo3.svg";
 
 const organizers = [
-  { name: "AI Tinkerers Kuala Lumpur", logo: aiTinkerersKlLogo },
-  { name: "Organizer 2", logo: "/placeholder.svg" },
-  { name: "Humeo", logo: image2Logo },
+  { name: "AI Tinkerers Kuala Lumpur", logo: logo1 },
+  { name: "AISEA", logo: logo3 },
+  { name: "Humeo", logo: logo2 },
 ];
 
 const Organizers = () => {
@@ -22,24 +23,34 @@ const Organizers = () => {
           Brought to you by
         </motion.p>
 
-        <div className="flex items-center justify-center gap-12 flex-wrap">
-          {organizers.map((organizer, i) => (
-            <motion.div
-              key={organizer.name}
-              className="group px-8 py-5 rounded-2xl bg-foreground/[0.06] border border-foreground/[0.04] hover:bg-foreground/[0.1] transition-all duration-500"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-            >
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            {/* Logo 3 */}
+            <motion.div className="px-4 py-2 rounded-lg">
               <img
-                src={organizer.logo}
-                alt={`${organizer.name} logo`}
-                className="h-10 sm:h-12 w-auto opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
+                src={logo3}
+                alt="AISEA logo"
+                className="h-28 sm:h-32 w-auto"
               />
             </motion.div>
-          ))}
-        </div>
+
+            {/* Logo 1 */}
+            <motion.div className="px-4 py-2 rounded-lg">
+              <img
+                src={logo1}
+                alt="AI Tinkerers Kuala Lumpur logo"
+                className="h-10 sm:h-12 w-auto"
+              />
+            </motion.div>
+            
+            {/* Logo 2*/}
+            <motion.div className="px-8 py-5 rounded-lg">
+              <img
+                src={logo2}
+                alt="Humeo logo"
+                className="h-10 sm:h-12 w-auto"
+              />
+            </motion.div>
+          </div>
       </div>
     </section>
   );
